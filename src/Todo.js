@@ -32,7 +32,6 @@ return (
         <span style={{ textDecoration: completed ? "line-through" : "none" }}>
             {task}
         </span>
-        <li> {task} </li>
         <button onClick={handleDelete}>Delete</button>
         <button onClick={handleEditClick}>Edit</button>
         <button onClick={handleMarkAsCompleted}>Mark As Completed</button>
