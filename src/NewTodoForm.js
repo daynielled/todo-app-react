@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuid } from 'uuid';
 
-const NewTodoForm = ({ onAddTodo }) => {
+const NewTodoForm = ({ addNewTodo }) => {
     const [task, setTask] = useState('');
 
     const handleChange = (e) => {
@@ -10,7 +10,7 @@ const NewTodoForm = ({ onAddTodo }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addTodo({ id: uuid(), task: task }) 
+        addNewTodo({ task, id: uuid() }) 
         setTask('');
     };
 
@@ -19,12 +19,13 @@ const NewTodoForm = ({ onAddTodo }) => {
             <form onSubmit={handleSubmit}>
                 <input
                     id="task"
+                    name="task"
                     type="text"
                     value={task}
                     onChange={handleChange}
                     placeholder="Enter Task"
                 />
-                <button type="submit">Add Todo</button>
+                <button>Add Task!</button>
             </form>
         </div>
 

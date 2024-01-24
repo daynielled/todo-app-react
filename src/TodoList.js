@@ -5,22 +5,25 @@ import NewTodoForm from "./NewTodoForm";
 function TodoList() {
     const [todos, setTodos] = useState([]);
 
-    const addTodo = newTodo => {
+    //Add a new todo
+    const addNew = newTodo => {
         setTodos(todos => [...todos, newTodo]);
     };
 
+    //Remove a todo
     const removeTodo = (id) => {
-        setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+        setTodos(todos => todos.filter(todo => todo.id !== id));
     };
 
     return (
         <div>
-            <NewTodoForm handleSubmit={{ addTodo }} />
+            <NewTodoForm addNewTodo={ addNew } />
             {todos.map((todo) => (
                 <Todo
                     key={todo.id}
+                    id={todo.id}
                     task={todo.task}
-                    onDelete={() => removeTodo(todo.id)}
+                    removeTodo={removeTodo}
                 />
             ))}
         </div>
