@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Todo.css";
 
 const Todo = ({ id = '1', task, completed, removeTodo, updateTodo }) => {
     const [isEditing, setEditing] = useState(false);

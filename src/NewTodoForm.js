@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuid } from 'uuid';
+import "./NewTodoForm.css";
 
 const NewTodoForm = ({ addNewTodo }) => {
     const [task, setTask] = useState('');
