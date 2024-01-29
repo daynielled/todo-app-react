@@ -6,16 +6,16 @@ import "./TodoList.css";
 function TodoList() {
     const [todos, setTodos] = useState([]);
 
-    // useEffect(() => {
-    //     //Retrieve todos from localstorage on page load
-    //     const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
-    //     setTodos(savedTodos);
-    // }, []);
+    useEffect(() => {
+        //Retrieve todos from localstorage on page load
+        const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+        setTodos(savedTodos);
+    }, []);
 
-    // useEffect(() => {
-    //     //Save todos to localStorage whenever todos change
-    //     localStorage.setItem("todos", JSON.stringify(todos));
-    // }, [todos]);
+    useEffect(() => {
+        //Save todos to localStorage whenever todos change
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }, [todos]);
 
     //Add a new todo
     const addNew = newTodo => {

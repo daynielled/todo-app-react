@@ -24,31 +24,34 @@ const Todo = ({ id = '1', task, completed, removeTodo, updateTodo }) => {
     };
 
 
-const handleChange = (e) => {
-    setEditedTask(e.target.value);
-}
+    const handleChange = (e) => {
+        setEditedTask(e.target.value);
+    }
 
-return (
-    <div>
-        <span style={{ textDecoration: completed ? "line-through" : "none" }}>
-            {task}
-        </span>
-        <button onClick={handleDelete}>Delete</button>
-        <button onClick={handleEditClick}>Edit</button>
-        <button onClick={handleMarkAsCompleted}>Mark As Completed</button>
 
-        {isEditing && (
-            <form onSubmit={handleEditSubmit}>
-                <input
-                    type="text"
-                    value={editedTask}
-                    onChange={handleChange}
-                />
-                <button>Update!</button>
-            </form>
-        )}
-    </div>
-  );
+    return (
+        <div style={{ textDecoration: completed ? "line-through" : "none" }}>
+            <label htmlFor={`task-${id}`}>
+                {task}
+            </label>
+
+
+            <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleEditClick}>Edit</button>
+            <button onClick={handleMarkAsCompleted}>Mark As Completed</button>
+
+            {isEditing && (
+                <form onSubmit={handleEditSubmit}>
+                    <input
+                        type="text"
+                        value={editedTask}
+                        onChange={handleChange}
+                    />
+                    <button>Update!</button>
+                </form>
+            )}
+        </div>
+    );
 };
 
 export default Todo;
